@@ -35,6 +35,7 @@ function locus()
  window.requestAnimationFrame(locus);  
 }
 </script>
+</head>
 <body>
  <div id='circle'></div>
 </body>
