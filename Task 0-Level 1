@@ -19,14 +19,14 @@ window.onload=function(){
 var circle = document.getElementById('circle');
 var x = circle.offsetLeft;
 var y = circle.offsetTop;
-var r =20
+var rad =20
 var spd = 0.1;
 var angle = 0;
 function locus()
  { 
   
-  x += r*Math.cos(angle);
-  y+= r*Math.sin(angle);
+  x += rad*Math.cos(angle);
+  y+= rad*Math.sin(angle);
   circle.style.left = x+'px';
   circle.style.top = y+'px';
   angle += spd; 
