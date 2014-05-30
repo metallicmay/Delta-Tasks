@@ -5,7 +5,7 @@
 <style type='text/css'>
  #container {
    position:relative;
-   height:450px;
+   height:250px;
    width:650px;
    outline:1px solid black;
   }
