@@ -5,8 +5,8 @@
 <style type='text/css'>
  #container {
    position:relative;
-   height:455px;
-   width:655px;
+   height:450px;
+   width:650px;
    outline:1px solid black;
   }
 #box {
@@ -14,7 +14,8 @@
   height:50px;
   width:50px;
   background-color:blue;
-  }
+  //left:0;
+ }
 </style>
 </head>
 <body>
@@ -26,46 +27,29 @@ var box=document.querySelector('#box');
 var x=0;
 var y=0;
 var raf=window.requestAnimationFrame;
-function moveup() {
-x=0;
-y-=5;
-box.style.top=y+"px";
-if(Math.abs(y)==0) {
- y=0;
- }
-raf(moveup);
-}
-function moveleft() {
-y=400;
-x-=5;
-box.style.left=x+"px";
-box.style.top="400px";
-if(Math.abs(x)==0) {
- moveup();
-  }
- raf(moveleft);
-}
-
-function movedown() {
-x=600;
-y+=5;
-box.style.left="600px";
-box.style.top=y+"px";
-if(Math.abs(y)==400) {
- moveleft();
-  }
- raf(movedown);
-}
-
-function moveright() {
+function move() {
+if(x<600&&y==0)
+{
 x+=5;
-box.style.left=x+"px";
-if(Math.abs(x)==600) {
-  movedown();
+box.style.left=x+ "px";
+}
+else if(x==600&&y<400)
+ { y+=5;
+  box.style.left="600px";
+  box.style.top=y+"px"; 
   }
-  raf(moveright);
+else if(x>0&&y==400)
+ { x-=5;
+  box.style.left=x+"px";
+  box.style.top="400px";
+  }
+ else if(x==0&&y>0)
+  { y-=5;
+    box.style.top=y+"px";
+  } 
+  raf(move);
  }
- moveright();
+ move();
 </script>
 </body>
 </html>
