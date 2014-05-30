@@ -1,0 +1,56 @@
+<!doctype html>
+<html>
+<head>
+<title> TRAPEZIUM </title>
+<style type='text/css'>
+ #container {
+   position:relative;
+   height:450px;
+   width:650px;
+   outline:1px solid black;
+  }
+#box {
+  position:relative;
+  height:50px;
+  width:50px;
+  background-color:blue;
+ }
+</style>
+</head>
+<body>
+<div id="container">
+ <div id="box"></div>
+</div>
+<script type='text/javascript'>
+var box=document.querySelector('#box');
+var x=0;
+var y=0;
+var raf=window.requestAnimationFrame;
+function move() {
+if(x<600&&y==0)
+{
+x+=5;
+box.style.left=x+"px";
+}
+else if((x==600||x>400)&&y<400)
+ { x-=5;
+   y+=5; 
+  box.style.left=x+"px";
+  box.style.top=y+"px"; 
+  }
+else if((x>200||x<=400)&&(y==400))
+ { x-=5;  
+  box.style.left=x+"px";
+  }
+ else if((x<=200)&&(y==400||y>0))
+  { x-=5;
+    y-=5;
+    box.style.left=x+"px";
+    box.style.top=y+"px";
+  } 
+  raf(move);
+ }
+ move();
+</script>
+</body>
+</html>
