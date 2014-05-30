@@ -32,13 +32,13 @@ if(x<600&&y==0)
 x+=5;
 box.style.left=x+"px";
 }
-else if((x==600||x>400)&&y<400)
+else if((x==600||x>=400)&&y<400)
  { x-=5;
    y+=5; 
   box.style.left=x+"px";
   box.style.top=y+"px"; 
   }
-else if((x>200||x<=400)&&(y==400))
+else if((x>200&&x<400)&&(y<=400))
  { x-=5;  
   box.style.left=x+"px";
   }
