@@ -14,7 +14,6 @@
   height:50px;
   width:50px;
   background-color:blue;
-  //left:0;
  }
 </style>
 </head>
@@ -31,7 +30,7 @@ function move() {
 if(x<600&&y==0)
 {
 x+=5;
-box.style.left=x+ "px";
+box.style.left=x+"px";
 }
 else if(x==600&&y<400)
  { y+=5;
