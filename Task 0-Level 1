@@ -32,7 +32,7 @@ function locus()
   angle += spd; 
   window.requestAnimationFrame(locus);  
  };
- window.requestAnimationFrame(locus);  
+ locus();  
 }
 </script>
 </head>
