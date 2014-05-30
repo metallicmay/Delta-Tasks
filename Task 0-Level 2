@@ -1,0 +1,71 @@
+<!doctype html>
+<html>
+<head>
+<title> TASK ZERO LEVEL TWO </title>
+<style type='text/css'>
+ #container {
+   position:relative;
+   height:455px;
+   width:655px;
+   outline:1px solid black;
+  }
+#box {
+  position:relative;
+  height:50px;
+  width:50px;
+  background-color:blue;
+  }
+</style>
+</head>
+<body>
+<div id="container">
+ <div id="box"></div>
+</div>
+<script type='text/javascript'>
+var box=document.querySelector('#box');
+var x=0;
+var y=0;
+var raf=window.requestAnimationFrame;
+function moveup() {
+x=0;
+y-=5;
+box.style.top=y+"px";
+if(Math.abs(y)==0) {
+ y=0;
+ }
+raf(moveup);
+}
+function moveleft() {
+y=400;
+x-=5;
+box.style.left=x+"px";
+box.style.top="400px";
+if(Math.abs(x)==0) {
+ moveup();
+  }
+ raf(moveleft);
+}
+
+function movedown() {
+x=600;
+y+=5;
+box.style.left="600px";
+box.style.top=y+"px";
+if(Math.abs(y)==400) {
+ moveleft();
+  }
+ raf(movedown);
+}
+
+function moveright() {
+x+=5;
+box.style.left=x+"px";
+if(Math.abs(x)==600) {
+  movedown();
+  }
+  raf(moveright);
+ }
+ moveright();
+</script>
+</body>
+</html>
