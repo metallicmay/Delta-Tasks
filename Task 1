@@ -1,0 +1,98 @@
+<!doctype html>
+<html>
+<head>
+<title> TASK ONE </title>
+<style>
+#mytext
+ { font-family: "Times new Roman", Times, serif;
+  font-size: 15px;
+   border:1px solid #000;
+   padding:5px; 
+   height:400px;
+   width:500px;
+   overflow:scroll; 
+  }
+</style>
+<script type="text/javascript">
+function getSelText() {
+var text="";
+if(window.getSelection) {
+text=window.getSelection().toString();
+}
+if(document.getSelection) {
+text=document.getSelection().toString();
+}
+return text;
+}
+function bold() {
+  document.execCommand('bold',null,false);  
+}
+function italic() {
+  document.execCommand('italic',null,false); 
+}
+function underline() {
+ document.execCommand('underline',false,null);
+}
+function color() {
+var color=prompt("Enter a font color"," ");
+document.execCommand('forecolor',false,color);
+}
+function highlight() {
+if('hilitecolor'=="yellow") {
+ document.execCommand("RemoveFormat",false,null);
+ }
+else {
+document.execCommand('hilitecolor',false,"yellow");
+ }
+}
+function dold() {
+ var text="";
+  text=getSelText();
+	var arr=text.split("");
+    for(var i=0;i<arr.length;i++)
+    {   if(i%2==0) {
+        var j=arr[i].charAt(0).toUpperCase();
+          arr[i]=j+arr[i].substr(1);
+		 }
+		else {
+		var k=arr[i].charAt(0).toLowerCase();
+          arr[i]=k+arr[i].substr(1);
+		}
+    }
+     var newtext=arr.join("");
+	 document.body.innerHTML=document.body.innerHTML.replace(text,newtext.bold());
+	 }
+function ditalic() {
+ var text="";
+ text=getSelText();
+	var arr=text.split("");
+    for(var i=0;i<arr.length;i++)
+    {   if(i%2==0) {
+        var j=arr[i].charAt(0).toUpperCase();
+          arr[i]=j+arr[i].substr(1);
+		 }
+		else {
+		var k=arr[i].charAt(0).toLowerCase();
+          arr[i]=k+arr[i].substr(1);
+		}
+    }
+     var newtext=arr.join("");
+	 document.body.innerHTML=document.body.innerHTML.replace(text,newtext.italics());
+}
+</script>
+</head>
+<body>
+<h1 style="font-family arial"> TEXT EDITOR </h1>
+<form method="post">
+<input type="button" value="B" onclick="bold()">
+<input type="button" value="I" onclick="italic()">
+<input type="button" value="U" onclick="underline()">
+<input type="button" value="Color" onclick="color()">
+<input type="button" value="Highlight" onclick="highlight()">
+<input type="button" value="Db" onclick="dold()">
+<input type="button" value="Di" onclick="ditalic()">
+<br></br>
+<div onclick="this.contentEditable='true';" id="mytext"> Functions: <br></br> Bold -'B'<br></br> Italic -'I'<br></br> Underline -'U'<br></br> Color -'Color'<br></br> Highlight -'Highlight' <br></br> Dold -'Db'<br></br> Ditalic -'Di'<br></br>...Now go ahead, and type your own text! :)</div>
+</form>
+</body>
+</html>
